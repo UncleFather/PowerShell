@@ -40,5 +40,18 @@ ___Возможности скрипта:___
 + __unlockAccounts.ps1:__
 Разблокирование всех учетных записей, кроме заданных исключений и отправка списка разблокированных через smtp
 + __lockingNotification.ps1:__
-Отслеживание событий блокировки учетных записей по журналу Windows «Security» и отправка уведомления через smtp при наступлении события. Для создания на сервере триггера события, необходимо выполнить команду: ```eventtriggers /create /TR "Lock Account" /TK "C:\WINDOWS\system32\windowspowershell\v1.0\powershell.exe c:\Soft\Bat\LckAccount.ps1" /L Security /EID 644```
-
+Отслеживание событий блокировки учетных записей по журналу Windows «Security» и отправка уведомления через smtp при наступлении события. Для создания на сервере триггера события, необходимо выполнить команду:
+```bat
+eventtriggers /create /TR "Lock Account" /TK "C:\WINDOWS\system32\windowspowershell\v1.0\powershell.exe c:\Soft\Bat\LckAccount.ps1" /L Security /EID 644
+```
++ __computersInfo.ps1:__
+Вывод подробной инфромации о компьютерах домена Active Directory
++ __groupMembers.ps1:__
+Вывод информации об активных членах заданной группы заданного структурного подразделения домена Active Directory
++ __checkMySite.ps1:__
+Проверка работоспособности сайта. В корне проверяемого сайта предварительно необходимо создать страничку `ip.php` со скриптом определения ip-адреса:
+```php
+<?
+$ip=$_SERVER['REMOTE_ADDR'];
+echo "$ip";
+?>```
